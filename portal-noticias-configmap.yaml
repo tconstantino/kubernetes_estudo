@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: portal-noticias-configmap
+  labels:
+    app: portal-noticias-configmap
+data:
+  IP_SISTEMA: http://localhost:30001
