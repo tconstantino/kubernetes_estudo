@@ -19,6 +19,20 @@ spec:
         image: aluracursos/sistema-noticias:1
         ports:
         - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          periodSeconds: 10
+          failureThreshold: 3
+          initialDelaySeconds: 25
+        readinessProbe:
+          httpGet:
+            path: /inserir_noticias.php
+            port: 80
+          periodSeconds: 10
+          failureThreshold: 5
+          initialDelaySeconds: 10
         envFrom:
         - configMapRef:
             name: sistema-noticias-configmap
